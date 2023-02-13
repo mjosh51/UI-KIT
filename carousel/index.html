@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel - Non-Infinite</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style type="text/css">
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 25rem;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel {
+        display: flex;
+        justify-content: flex-start;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .carousel img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+      }
+
+      .control-container {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0 12px;
+      }
+
+      .angle-icon-container {
+        border-radius: 50%;
+        padding: 8px 10px;
+        background-color: #fff;
+        cursor: pointer;
+      }
+
+      .angle-icon-left {
+        transform: rotate(90deg);
+        font-size: 20px;
+      }
+
+      .angle-icon-right {
+        transform: rotate(270deg);
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="carousel">
+        <img
+          src="../images/1.jpg"
+          id="carousel-image-1"
+          alt=""
+          accesskey="true"
+        />
+        <img src="../images/2.jpg" id="carousel-image-2" alt="" />
+        <img src="../images/3.jpg" id="carousel-image-3" alt="" />
+      </div>
+      <div class="control-container">
+        <span class="angle-icon-container" id="control-btn-left"
+          ><i
+            class="fa-solid fa-angle-down angle-icon-left"
+            id="tooltip-icon"
+          ></i
+        ></span>
+        <span class="angle-icon-container" id="control-btn-right"
+          ><i
+            class="fa-solid fa-angle-down angle-icon-right"
+            id="tooltip-icon"
+          ></i
+        ></span>
+      </div>
+    </div>
+    <script async>
+      const backward = document.getElementById('control-btn-left');
+      const forward = document.getElementById('control-btn-right');
+      const carousel = document.querySelector('.carousel');
+
+      let index;
+
+      backward.onclick = () => {
+        if (index === -1) {
+          carousel.appendChild(carousel.firstElementChild);
+          index = 1;
+        }
+
+        carousel.style.transform = 'translate(-19%)';
+        carousel.style.justifyContent = 'flex-end';
+      };
+
+      forward.onclick = () => {
+        index = -1;
+        carousel.style.transform = 'translate(-19%)';
+        carousel.style.justifyContent = 'flex-start';
+      };
+
+      carousel.addEventListener('transitionend', () => {
+        if (index === -1) {
+          carousel.appendChild(carousel.firstElementChild);
+        } else if (index === 1) {
+          carousel.prepend(carousel.lastElementChild);
+        }
+        carousel.style.transition = 'none';
+        carousel.style.transform = 'translate(0)';
+        setTimeout(function () {
+          carousel.style.transition = 'transform 0.2s ease-in-out';
+        });
+      });
+    </script>
+  </body>
+</html>

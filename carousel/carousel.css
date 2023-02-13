@@ -1,0 +1,59 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  justify-content: flex-start;
+  transition: transform 0.1s ease-in-out;
+}
+
+.carousel img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.control-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 12px;
+}
+
+.angle-icon-container {
+  border-radius: 50%;
+  padding: 8px 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.angle-icon-left {
+  transform: rotate(90deg);
+  font-size: 20px;
+}
+
+.angle-icon-right {
+  transform: rotate(270deg);
+  font-size: 20px;
+}

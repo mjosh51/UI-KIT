@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>UI KIT - In Progress</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="wrapper">
+        <img src="./images/pngegg.png" width="20" height="20" alt="vector" />
+
+        <div class="logo">UI starter kit</div>
+        <div class="media">
+          <div class="button">
+            <i class="fa-brands fa-square-facebook"></i>
+            <span>Share</span>
+          </div>
+          <div class="button">
+            <i class="fa-brands fa-twitter"></i>
+            <span>Tweet</span>
+          </div>
+          <div class="button">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>Docs</span>
+          </div>
+          <div class="button">
+            <i class="fa-solid fa-circle-down"></i>
+            <span>Download</span>
+          </div>
+          <div class="button">
+            <i class="fa-solid fa-gem"></i>
+            <span>Download designer</span>
+          </div>
+        </div>
+        <div class="menu" id="menu"><i class="fa-solid fa-bars"></i></div>
+      </div>
+    </div>
+
+    <div class="dropdown-container" id="dropdown-container">
+      <div class="dropdown">
+        <div class="button">
+          <i class="fa-brands fa-square-facebook"></i>
+          <span>Share</span>
+        </div>
+        <div class="button">
+          <i class="fa-brands fa-twitter"></i>
+          <span>Tweet</span>
+        </div>
+        <div class="button">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Docs</span>
+        </div>
+        <div class="button">
+          <i class="fa-solid fa-circle-down"></i>
+          <span>Download</span>
+        </div>
+        <div class="button">
+          <i class="fa-solid fa-gem"></i>
+          <span>Download designer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main-navs">
+        <div class="components">
+          <div class="tooltip">
+            <div>
+              Tooltip<i class="fa-solid fa-angle-down" id="tooltip-icon"></i>
+            </div>
+            <div class="tooltip-drop" id="tooltip-drop">
+              <span id="tooltip-down">down</span>
+              <span id="tooltip-up">up</span>
+              <span id="tooltip-left">left</span>
+              <span id="tooltip-right">right</span>
+            </div>
+          </div>
+          <div class="tooltip">
+            <div>
+              Popover<i class="fa-solid fa-angle-down" id="popover-icon"></i>
+            </div>
+            <div class="tooltip-drop" id="popover">
+              <span id="popover-down">down</span>
+              <span id="popover-up">up</span>
+              <span id="popover-left">left</span>
+              <span id="popover-right">right</span>
+            </div>
+          </div>
+          <div class="modal" id="modal">Modal</div>
+          <div class="alert" id="alert">Alert</div>
+          <div class="navbar" id="navbar">Nav Bar</div>
+        </div>
+      </div>
+      <div class="main-body" id="main-body"></div>
+    </div>
+    <div class="footer-container">
+      <div class="footer">
+        <div class="footer-body">
+          <div class="footer-head">
+            <span>UI Components Starter Kit</span>
+            <br />
+            <span>A beautiful extension for UI components.</span>
+          </div>
+          <div class="footer-social">
+            <span><i class="fa-brands fa-twitter"></i></span>
+            <span><i class="fa-brands fa-square-facebook"></i></span>
+            <span><i class="fa-brands fa-youtube"></i></span>
+            <span><i class="fa-brands fa-github"></i></span>
+          </div>
+          <div class="version">
+            Currently v1.1.0. Code licensed MIT, docs CC BY 4.0
+          </div>
+        </div>
+        <div class="footer-nav">
+          <ul>
+            <li>USEFUL LINKS</li>
+            <li>About Us</li>
+            <li>Blog</li>
+            <li class="github" id="github">Github</li>
+            <li>Free Products</li>
+          </ul>
+          <ul>
+            <li>OTHER RESOURCES</li>
+            <li>MIT License</li>
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-end">
+        <div>Copyright © 2022 UI Components Starter Kit by Ayor & Josh.</div>
+      </div>
+    </div>
+
+    <script src="components_index.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Modal - Example</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+
+      .button-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .button {
+        background-color: #ec4899;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .modal-container {
+        border-radius: 5px;
+        width: 23.5rem;
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-color: #fff;
+      }
+
+      .modal-title {
+        text-transform: capitalize;
+        padding: 0 1.3rem;
+      }
+
+      .modal-body {
+        border-top: 0.1px solid rgba(108, 105, 105, 0.212);
+        border-bottom: 0.1px solid rgba(108, 105, 105, 0.212);
+        padding: 2rem 1.3rem;
+        line-height: 1.7;
+        font-size: 1.1rem;
+        color: rgb(97, 94, 94);
+      }
+
+      .modal-button-container {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 1.3rem;
+        padding-bottom: 2rem;
+        gap: 0.2rem;
+      }
+
+      .close {
+        color: red;
+        border: none;
+        border-radius: 3px;
+        padding: 15px 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.85rem;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      .save-changes {
+        background-color: #50c878;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        padding: 15px 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 340px) {
+        .modal-container {
+          width: 17rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <div class="button-container">
+        <button type="button" class="button" id="toggle-button">
+          open space modal
+        </button>
+      </div>
+      <div class="modal-container" id="modal-box">
+        <h1 class="modal-title">modal title</h1>
+        <p class="modal-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          minima doloremque distinctio totam quos quasi, sequi soluta cupiditate
+          vero ratione quo ipsa excepturi id commodi iusto, dolorum ducimus
+          voluptatum aut cum sint quod repudiandae! Minima rem similique rerum
+          ea nemo?
+        </p>
+        <div class="modal-button-container">
+          <button type="button" class="close" id="close">close</button>
+          <button type="button" class="save-changes" id="save-changes">
+            save changes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const container = document.getElementById('container');
+      const toggleButton = document.getElementById('toggle-button');
+      const modal = document.getElementById('modal-box');
+      const closeButton = document.getElementById('close');
+      const saveButton = document.getElementById('save-changes');
+
+      function toggleModal() {
+        modal.style.display = 'block';
+        document.body.style.backgroundColor = 'rgba(108, 105, 105, 0.212)';
+      }
+
+      function applyClose(e) {
+        console.log(e.target);
+      }
+      function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.backgroundColor = 'transparent';
+      }
+
+      window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('container')) {
+          closeModal();
+        }
+      });
+
+      modal.addEventListener('click', closeModal);
+      saveButton.addEventListener('click', closeModal);
+      closeButton.addEventListener('click', closeModal);
+      toggleButton.addEventListener('click', toggleModal);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 80%;
+        width: 90%;
+      }
+
+      .nav {
+        background-color: #ec4899;
+        color: white;
+        padding: 1.7rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .button {
+        display: flex;
+        gap: 0.5rem;
+        cursor: pointer;
+        background-color: transparent;
+      }
+
+      .button:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .header-text {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .nav-box {
+        visibility: hidden;
+        background-color: #7d3b65;
+        /* border: 1px solid #7d3b65; */
+        position: absolute;
+        top: 65%;
+        width: 100%;
+        color: #fff;
+        padding-left: 2.3rem;
+        padding-bottom: 1.7rem;
+        padding-top: 1.6rem;
+      }
+
+      .hidden-nav {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .share,
+      .tweet,
+      .pin {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      .input-button {
+        position: absolute;
+        top: 58%;
+        left: 10%;
+      }
+
+      @media screen and (max-width: 300px) {
+        .nav-box {
+          top: 68%;
+        }
+      }
+
+      @media screen and (min-width: 600px) and (max-width: 699px) {
+        .input-button {
+          top: 65%;
+        }
+      }
+
+      @media screen and (max-width: 769px) {
+        .buttons {
+          display: none;
+        }
+        .menu {
+          cursor: pointer;
+        }
+      }
+
+      @media screen and (min-width: 769px) {
+        .menu {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: 730px) and (max-width: 899px) {
+        .input-button {
+          top: 62%;
+        }
+      }
+
+      @media screen and (min-width: 900px) {
+        .container {
+          max-width: 55%;
+          width: 60%;
+        }
+
+        .input-button {
+          top: 55%;
+          left: 22.5%;
+        }
+      }
+
+      @media screen and (min-width: 915px) {
+        .container {
+          max-width: 55%;
+          width: 60%;
+        }
+
+        .input-button {
+          top: 62%;
+          left: 22.5%;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        .container {
+          max-width: 55%;
+          width: 60%;
+        }
+
+        .input-button {
+          top: 58%;
+          left: 22.5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav" id="nav">
+        <div class="header-text">pure css starter kit</div>
+        <div class="menu" id="menu-button">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="buttons">
+          <div class="button">
+            <i class="fa-brands fa-square-facebook"></i
+            ><span class="share">share</span>
+          </div>
+          <div class="button">
+            <i class="fa-brands fa-twitter"></i><span class="tweet">tweet</span>
+          </div>
+          <div class="button">
+            <i class="fab fa-pinterest"></i><span class="pin">pin</span>
+          </div>
+        </div>
+      </div>
+      <div class="nav-box" id="nav-box">
+        <div class="hidden-nav">
+          <div class="button">
+            <i class="fa-brands fa-square-facebook"></i
+            ><span class="share">share</span>
+          </div>
+          <div class="button">
+            <i class="fa-brands fa-twitter"></i><span class="tweet">tweet</span>
+          </div>
+          <div class="button">
+            <i class="fab fa-pinterest"></i><span class="pin">pin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="color" id="input-button" class="input-button" />
+
+    <script async>
+      const inputButton = document.getElementById('input-button');
+      const nav = document.getElementById('nav');
+
+      const menuButton = document.getElementById('menu-button');
+      const navBox = document.getElementById('nav-box');
+
+      let currentState = false;
+      function displayNav() {
+        let color = localStorage.getItem('color');
+        navBox.style.backgroundColor - color;
+        navBox.style.backgroundColor = color;
+        if (!currentState && window.innerWidth <= 375) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 80%;');
+        } else if (
+          !currentState &&
+          window.innerWidth > 375 &&
+          window.innerWidth < 399
+        ) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 70%;');
+        } else if (
+          !currentState &&
+          window.innerWidth > 399 &&
+          window.innerWidth < 450
+        ) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 70%;');
+        } else if (
+          !currentState &&
+          window.innerWidth > 450 &&
+          window.innerWidth < 550
+        ) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 75%;');
+        } else if (
+          !currentState &&
+          window.innerWidth > 550 &&
+          window.innerWidth < 650
+        ) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 110%;');
+        } else if (
+          !currentState &&
+          window.innerWidth > 650 &&
+          window.innerWidth < 668
+        ) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 95%;');
+        } else if (
+          !currentState &&
+          window.innerWidth > 680 &&
+          window.innerWidth < 730
+        ) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 70%;');
+        } else if (
+          !currentState &&
+          window.innerWidth > 735 &&
+          window.innerWidth < 741
+        ) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 100%;');
+        } else if (!currentState && window.innerWidth > 799) {
+          currentState = true;
+          navBox.style.visibility = 'visible';
+          inputButton.setAttribute('style', 'position: absolute; top: 82%;');
+        } else {
+          currentState = false;
+          navBox.style.visibility = 'hidden';
+          inputButton.removeAttribute('style');
+        }
+      }
+
+      function getColor() {
+        let color = localStorage.getItem('color');
+        nav.style.backgroundColor = color;
+        inputButton.value = color;
+      }
+
+      getColor();
+
+      function saveColor(color) {
+        localStorage.setItem('color', color);
+      }
+      function changeColor(e) {
+        saveColor(e.target.value);
+        nav.style.backgroundColor = e.target.value;
+        navBox.style.backgroundColor = e.target.value;
+      }
+
+      inputButton.addEventListener('input', changeColor);
+      menuButton.addEventListener('click', displayNav);
+    </script>
+  </body>
+</html>

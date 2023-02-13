@@ -1,0 +1,121 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.container {
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav button {
+  border: none;
+  outline: none;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav .first-btn {
+  background-color: #ec4899;
+  color: #fff;
+}
+
+.btn-background {
+  background-color: #ec4899;
+  color: #fff;
+}
+
+.default-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-button {
+  border: none;
+  outline: none;
+  background-color: #ec4899;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pop-over {
+  display: none;
+  background-color: #db2777;
+  padding: 13px 0;
+  gap: 15px;
+  border-radius: 10px;
+  width: 20rem;
+  cursor: pointer;
+}
+
+.pop-over span {
+  padding: 0 20px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.pop-over span:first-child {
+  border-bottom: 1px solid rgb(238, 234, 234);
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  color: rgb(222, 217, 217);
+  font-weight: 500;
+}
+
+.pop-over-left {
+  position: absolute;
+  left: 17%;
+  top: 37%;
+  display: grid;
+  transition: display 0.1s ease-in-out;
+}
+
+.pop-over-right {
+  position: absolute;
+  right: 17%;
+  top: 37%;
+  display: grid;
+  transition: display 0.1s ease-in-out;
+}
+
+.pop-over-up {
+  position: absolute;
+  left: 34.5%;
+  top: 24%;
+  display: grid;
+  transition: display 0.1s ease-in-out;
+}
+
+.pop-over-down {
+  position: absolute;
+  left: 34.5%;
+  bottom: 27%;
+  display: grid;
+  transition: display 0.1s ease-in-out;
+}
